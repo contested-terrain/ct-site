@@ -30,7 +30,8 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        baseUrl: "", // TODO: Define url
+        // baseUrl: "dev-gatbsyjswp.pantheonsite.io"
+        baseUrl: "134.209.163.151:8080", // TODO: Define url
         protocol: "http", // Or 'https'
         hostingWPCOM: false,
         useACF: true,
