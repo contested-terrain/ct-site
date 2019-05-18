@@ -1,35 +1,28 @@
-import { Link } from "gatsby"
+import { globalHistory } from "@reach/router"
 import PropTypes from "prop-types"
 import React from "react"
+import Branding from "./branding"
+import Nav from "./nav"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+import styles from "./header.module.css"
+
+const Header = ({ siteTitle, menuItems }) => {
+  return (
+    <header className={styles.main}>
+      <Branding className={styles.branding} siteTitle={siteTitle} />
+      <Nav className={styles.nav}>
+        {menuItems.map(({ displayName, path }) => (
+          <Nav.Item
+            href={path}
+            isSelected={globalHistory.location.pathname === path}
+          >
+            {displayName}
+          </Nav.Item>
+        ))}
+      </Nav>
+    </header>
+  )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

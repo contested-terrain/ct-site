@@ -1,0 +1,9 @@
+.main {
+    margin: 0;
+    font-family: 'Proza Libre', sans-serif;
+    font-size: 1.3em;
+}
+
+.main a {
+    text-decoration: none;
+}
