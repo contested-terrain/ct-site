@@ -1,0 +1,14 @@
+/* @import "variables.css" */
+
+@each $clr in (red, blue) {
+    .color-$(clr) {
+        background-color: $clr;
+    }
+}
+
+
+@each $prop, $abbrev in (margin), (margin), (){
+    @each $spacing-name, $spacing-length in (1), (4px) {
+        .$(abbrev)-a-$(spacing-name) { $(prop):        $spacing-length; }
+    }
+}

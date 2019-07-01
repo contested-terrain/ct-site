@@ -1,0 +1,14 @@
+@import '../css/variables.css';
+
+.main {
+    composes: marginA1 from '../css/utilities.css';
+    width: max-content;
+    padding: 0 .5rem;
+    border-radius: .5rem;
+    background-color: var(--tag-color1);
+    cursor: pointer;
+}
+
+.main:hover {
+    background-color: color(var(--tag-color1) shade(20%))
+}
