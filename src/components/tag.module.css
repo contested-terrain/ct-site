@@ -1,14 +1,21 @@
 @import '../css/variables.css';
 
-.main {
-    composes: marginA1 from '../css/utilities.css';
-    width: max-content;
-    padding: 0 .5rem;
-    border-radius: .5rem;
-    background-color: var(--tag-color1);
-    cursor: pointer;
+.base {
+  /* composes: marginA1 from '../css/utilities.css'; */
+  width: max-content;
+  padding: 0 0.4rem;
+  margin: 0.2rem;
+  border-radius: .3rem;
+  background-color: var(--tag-color1);
+  cursor: pointer;
 }
 
-.main:hover {
-    background-color: color(var(--tag-color1) shade(20%))
+.base:hover {
+  background-color: color(var(--tag-color1) shade(20%))
+}
+
+.label {
+  font-family: var(--control-font);
+  font-size: var(--font-size-5);
+  font-variant: small-caps;
 }

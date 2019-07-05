@@ -8,12 +8,13 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
+import cn from "classnames"
 
 import Header from "./header"
 import "./normalize.css"
 import "./global.css"
 
-const Layout = ({ children }) => (
+const Layout = ({ children, className }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -34,7 +35,7 @@ const Layout = ({ children }) => (
     render={data => {
       console.log(data)
       return (
-        <div className="container">
+        <div className={cn("container", className)}>
           <Header
             siteTitle={data.site.siteMetadata.title}
             menuItems={data.site.siteMetadata.menuItems}

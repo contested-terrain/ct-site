@@ -4,11 +4,8 @@ import cn from "classnames"
 import test from "../css/utilities.css"
 import styles from "./tag.module.css"
 
-console.log(test.red)
-console.log(styles)
-
-export default ({ label, clickHandler }) => (
-  <div className={cn("tag", styles.main, test.red)} onClick={clickHandler}>
-    <span class="tag__label">{label}</span>
+export default ({ label, clickHandler, className }) => (
+  <div className={cn(styles.base, className)} onClick={clickHandler}>
+    <span className={styles.label}>{label}</span>
   </div>
 )

@@ -1,0 +1,13 @@
+@import "../css/variables.css";
+
+.base {
+  margin-bottom: var(--spacer-2)
+}
+
+.title {
+  margin: 0;
+}
+
+.attribution {
+  margin: 0 0 var(--spacer-1) 0;
+}

@@ -1,3 +1,10 @@
-.main {}
+@import "../css/variables.css";
 
-.filter
+.base {}
+
+.contentHeader {
+  text-align: center;
+  margin-bottom: var(--spacer-3)
+}
+
+.content {}
