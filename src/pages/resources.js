@@ -35,6 +35,8 @@ const dataToResources = S.pipe([
   S.reduce(flattenResources)([]),
 ])
 
+// Don't check on value of topics (i.e. use S.K(true) == (x => true))
+// because from context we can assume that topics is well-formed.
 const getFilters = S.pipe([
   S.map(S.get(S.K(true))("topics")),
   S.justs,
