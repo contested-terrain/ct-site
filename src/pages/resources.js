@@ -36,11 +36,13 @@ const dataToResources = S.pipe([
 ])
 
 const getFilters = S.pipe([
-  S.map(S.unchecked.filter(S.is($.Array($.Object)))),
-  S.map(S.value("topics")),
-  S.map(S.fromMaybe([])),
+  S.map(S.get(S.K(true))("topics")),
+  S.justs,
   S.join,
-  S.reduce(countFilters)({}),
+  S.map(S.prop("name")),
+  S.reduce(map => key =>
+    S.insert(key)(S.fromMaybe(0)(S.value(key)(map)) + 1)(map)
+  )({}),
 ])
 
 const ResourcesPages = () => {
