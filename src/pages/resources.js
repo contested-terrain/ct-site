@@ -1,4 +1,5 @@
 import React from "react"
+import $ from "sanctuary-def"
 import S from "sanctuary"
 import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
@@ -23,12 +24,23 @@ const flattenResources = rs => r =>
     ...S.prop("acf")(r),
   })(rs)
 
+const countFilters = fs => ({ name }) =>
+  name in fs ? { [name]: fs[name]++, ...fs } : { [name]: 1, ...fs }
+
 const dataToResources = S.pipe([
   S.value("allWordpressWpResource"),
   S.fromMaybe({}),
   S.value("nodes"),
   S.fromMaybe([]),
   S.reduce(flattenResources)([]),
+])
+
+const getFilters = S.pipe([
+  S.map(S.unchecked.filter(S.is($.Array($.Object)))),
+  S.map(S.value("topics")),
+  S.map(S.fromMaybe([])),
+  S.join,
+  S.reduce(countFilters)({}),
 ])
 
 const ResourcesPages = () => {
@@ -57,13 +69,15 @@ const ResourcesPages = () => {
   `)
 
   const resources = dataToResources(data)
+  console.log(getFilters(resources))
+  const filters = getFilters(resources)
 
   return (
     <Layout className={styles.base}>
       <SEO title="Resources" keywords={[`gatsby`, `application`, `react`]} />
       <div className={styles.contentHeader}>
         <h2>Resources</h2>
-        <Filters />
+        <Filters filters={filters} />
       </div>
       <div className={styles.content}>
         <List className="resources">

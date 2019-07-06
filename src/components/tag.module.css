@@ -15,7 +15,8 @@
 }
 
 .label {
-  font-family: var(--control-font);
+  /* font-family: var(--control-font); */
+  font-family: var(--brand-font);
   font-size: var(--font-size-5);
   font-variant: small-caps;
 }
