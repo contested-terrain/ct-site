@@ -71,7 +71,6 @@ const ResourcesPages = () => {
   `)
 
   const resources = dataToResources(data)
-  console.log(getFilters(resources))
   const filters = getFilters(resources)
 
   return (
