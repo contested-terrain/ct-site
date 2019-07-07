@@ -1,3 +1,5 @@
+@import "../css/variables.css";
+
 /.*
 * Skeleton V2.0.4
 * Copyright 2014, Dave Gamache
@@ -7,7 +9,6 @@
 * 12/29/2014
 */
 
-@import "../css/variables.css"
 
 
 /* Table of contents
