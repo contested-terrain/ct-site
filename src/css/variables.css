@@ -1,0 +1,25 @@
+:root {
+  --brand-font: "Proza Libre", sans-serif;
+  --control-font: Palatino, serif;
+  --body-font: 'Cormorant Garamond', serif;
+
+  --text-color: #202020;
+  --tag-color1: #E3A24E;
+
+  --font-size-body: 2.1rem;
+  --font-size-1: 4.0rem;
+  --font-size-2: 3.6rem;
+  --font-size-3: 3.0rem;
+  --font-size-4: 2.4rem;
+  --font-size-5: 1.8rem;
+  --font-size-6: 1.6rem;
+
+  --spacer-0:    0;
+  --spacer-1:    0.8rem;
+  --spacer-2:    1.6rem;
+  --spacer-3:    2.4rem;
+  --spacer-5:    3.2rem;
+  --spacer-4:    4.0rem;
+  --spacer-5:    6.4rem;
+  --spacer-6:    10.4rem;
+}

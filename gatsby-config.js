@@ -19,6 +19,7 @@ module.exports = {
     ],
   },
   plugins: [
+    `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -45,10 +46,12 @@ module.exports = {
       resolve: `gatsby-source-wordpress`,
       options: {
         // baseUrl: "dev-gatbsyjswp.pantheonsite.io"
-        baseUrl: "134.209.163.151:8080", // TODO: Define url
+        baseUrl: "165.227.75.92:8080", // TODO: Define url
         protocol: "http", // Or 'https'
         hostingWPCOM: false,
         useACF: true,
+        acfOptionPageIds: [6],
+        verboseOutput: true,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

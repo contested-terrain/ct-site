@@ -1,4 +1,6 @@
-/*
+@import "../css/variables.css";
+
+/.*
 * Skeleton V2.0.4
 * Copyright 2014, Dave Gamache
 * www.getskeleton.com
@@ -6,6 +8,7 @@
 * http://www.opensource.org/licenses/mit-license.php
 * 12/29/2014
 */
+
 
 
 /* Table of contents
@@ -44,14 +47,14 @@
 /* For devices larger than 400px */
 @media (min-width: 400px) {
   .container {
-    width: 85%;
+    width: 100%;
     padding: 0; }
 }
 
 /* For devices larger than 550px */
 @media (min-width: 550px) {
   .container {
-    width: 80%; }
+    width: 100%; }
   .column,
   .columns {
     margin-left: 4%; }
@@ -123,12 +126,12 @@ are based on 10px sizing. So basically 1.5rem = 15px :) */
 html {
   font-size: 62.5%; }
 body {
-    background-color: #FFF4EB;
+  background-color: #FFF4EB;
   font-size: 2.1em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
   font-family: 'Cormorant Garamond', serif;
-  color: #202020;}
+  color: var(--text-color);}
 
 
 /* Typography
@@ -360,7 +363,6 @@ ul,
 ol,
 form {
   margin-bottom: 2.5rem; }
-
 
 /* Utilities
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
