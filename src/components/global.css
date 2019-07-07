@@ -128,7 +128,7 @@ body {
   line-height: 1.6;
   font-weight: 400;
   font-family: 'Cormorant Garamond', serif;
-  color: #202020;}
+  color: var(--text-color);}
 
 
 /* Typography
