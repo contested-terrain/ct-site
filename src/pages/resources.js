@@ -102,6 +102,7 @@ const ResourcesPages = () => {
               key={r.id}
               title={r.title}
               attribution={r.resource_author}
+              link={r.link}
               blurb={r.blurb}
             />
           ))}
