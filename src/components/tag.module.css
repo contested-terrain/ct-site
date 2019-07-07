@@ -14,6 +14,10 @@
   background-color: color(var(--tag-color1) shade(20%))
 }
 
+.selected {
+  background-color: color(var(--tag-color1) shade(20%))
+}
+
 .label {
   /* font-family: var(--control-font); */
   font-family: var(--brand-font);

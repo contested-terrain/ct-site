@@ -3,9 +3,9 @@ import cn from "classnames"
 
 import styles from "./tag.module.css"
 
-export default ({ label, count, onClick, className }) => (
+export default ({ label, count, selected, onClick, className }) => (
   <div
-    className={cn(styles.base, className)}
+    className={cn(className, styles.base, { [styles.selected]: selected })}
     data-label={label}
     onClick={onClick}
   >

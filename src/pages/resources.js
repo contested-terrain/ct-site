@@ -84,6 +84,7 @@ const ResourcesPages = () => {
         <h2>Resources</h2>
         <Filters
           filters={filters}
+          activeFilter={activeFilter}
           handleFilterClick={e => {
             const getFilterLabel = S.props([
               "currentTarget",

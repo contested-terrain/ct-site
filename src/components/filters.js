@@ -5,17 +5,23 @@ import Tag from "./tag"
 
 import styles from "./filters.module.css"
 
-const buildTags = (fs, handleFilterClick) =>
+const buildTags = (fs, activeFilter, handleFilterClick) =>
   S.reduce(xs => x => {
     return S.append(
-      <Tag key={x} label={x} count={fs[x]} onClick={handleFilterClick} />
+      <Tag
+        key={x}
+        label={x}
+        count={fs[x]}
+        selected={x === activeFilter}
+        onClick={handleFilterClick}
+      />
     )(xs)
   })([])(S.keys(fs))
 
-export default ({ filters, handleFilterClick }) => {
+export default ({ filters, activeFilter, handleFilterClick }) => {
   return (
     <div className={cn("filters", styles.main)}>
-      {buildTags(filters, handleFilterClick)}
+      {buildTags(filters, activeFilter, handleFilterClick)}
     </div>
   )
 }
