@@ -1,5 +1,4 @@
 import React from "react"
-import $ from "sanctuary-def"
 import S from "sanctuary"
 import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
@@ -23,9 +22,6 @@ const flattenResources = rs => r =>
     ...pick(getKeysExcept(["acf"])(r))(r),
     ...S.prop("acf")(r),
   })(rs)
-
-const countFilters = fs => ({ name }) =>
-  name in fs ? { [name]: fs[name]++, ...fs } : { [name]: 1, ...fs }
 
 const dataToResources = S.pipe([
   S.prop("allWordpressWpResource"),
