@@ -5,9 +5,19 @@
 }
 
 .title {
+  font-size: var(--font-size-3);
   margin: 0;
 }
 
+.link {
+  text-decoration: none;
+}
+
+
 .attribution {
   margin: 0 0 var(--spacer-1) 0;
+  font-size: var(--font-size-5);
+  font-variant: all-petite-caps;
+  font-family: var(--control-font);
+  color: color(var(--text-color) tint(30%))
 }
