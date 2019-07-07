@@ -28,10 +28,8 @@ const countFilters = fs => ({ name }) =>
   name in fs ? { [name]: fs[name]++, ...fs } : { [name]: 1, ...fs }
 
 const dataToResources = S.pipe([
-  S.value("allWordpressWpResource"),
-  S.fromMaybe({}),
-  S.value("nodes"),
-  S.fromMaybe([]),
+  S.prop("allWordpressWpResource"),
+  S.prop("nodes"),
   S.reduce(flattenResources)([]),
 ])
 
