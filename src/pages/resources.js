@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import S from "sanctuary"
 import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
@@ -41,6 +41,12 @@ const getFilters = S.pipe([
   )({}),
 ])
 
+const resourceHasTopic = topic =>
+  S.pipe([S.prop("topics"), S.any(x => S.equals(topic)(S.prop("name")(x)))])
+
+const filterResources = activeFilter => resources =>
+  activeFilter ? S.filter(resourceHasTopic(activeFilter))(resources) : resources
+
 const ResourcesPages = () => {
   const data = useStaticQuery(graphql`
     query MyQuery {
@@ -66,6 +72,8 @@ const ResourcesPages = () => {
     }
   `)
 
+  const [activeFilter, setActiveFilter] = useState(false)
+
   const resources = dataToResources(data)
   const filters = getFilters(resources)
 
@@ -74,12 +82,23 @@ const ResourcesPages = () => {
       <SEO title="Resources" keywords={[`gatsby`, `application`, `react`]} />
       <div className={styles.contentHeader}>
         <h2>Resources</h2>
-        <Filters filters={filters} />
+        <Filters
+          filters={filters}
+          handleFilterClick={e => {
+            const getFilterLabel = S.props([
+              "currentTarget",
+              "dataset",
+              "label",
+            ])
+            setActiveFilter(getFilterLabel(e))
+          }}
+        />
       </div>
       <div className={styles.content}>
         <List className="resources">
-          {resources.map(r => (
+          {filterResources(activeFilter)(resources).map(r => (
             <ContentTeaser
+              key={r.id}
               title={r.title}
               attribution={r.resource_author}
               blurb={r.blurb}
