@@ -1,18 +1,26 @@
 import { globalHistory } from "@reach/router"
 import PropTypes from "prop-types"
-import React from "react"
+import React, { useState } from "react"
+import cn from "classnames"
 import Branding from "./branding"
 import Nav from "./nav"
+import IconMenu from "./icons/icon-menu"
 
 import styles from "./header.module.css"
 
 const Header = ({ siteTitle, menuItems }) => {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   return (
-    <header className={styles.main}>
+    <header className={styles.base}>
       <Branding className={styles.branding} siteTitle={siteTitle} />
-      <Nav className={styles.nav}>
+      <div className={styles.menuButton}>
+        <IconMenu size={32} clickHandler={e => setMenuOpen(!menuOpen)} />
+      </div>
+      <Nav className={cn(styles.navMenu, { [styles.closed]: !menuOpen })}>
         {menuItems.map(({ displayName, path }) => (
           <Nav.Item
+            className={styles.menuItem}
             href={path}
             isSelected={globalHistory.location.pathname === path}
           >

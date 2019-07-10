@@ -1,9 +1,32 @@
-.main {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 9rem;
-    width: 100%;
-    margin: 0 auto;
-    padding: 3.5rem 1rem;
+@import "../css/variables.css";
+
+.base {
+  display: grid;
+  grid-template-columns: auto auto;
+  width: 100%;
+}
+
+.branding {
+  padding: var(--spacer-2)
+}
+
+.menuButton {
+  padding: var(--spacer-2);
+  justify-self: end;
+  align-self: center;
+}
+
+.navMenu {
+  grid-column: span 2;
+  text-align: center;
+  padding: var(--spacer-1)
+}
+
+.menuItem {
+  width: 100%;
+  margin-bottom: var(--spacer-1)
+}
+
+.closed {
+  display: none;
 }
