@@ -48,7 +48,10 @@ const Layout = ({ children, className }) => (
               paddingTop: 0,
             }}
           >
-            <main>{children}</main>
+            <main>
+              <div style={{ height: 0, borderBottom: "solid 1px gray" }} />
+              {children}
+            </main>
             <footer>
               © {new Date().getFullYear()}, Built with
               {` `}
