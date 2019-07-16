@@ -4,6 +4,7 @@
   display: grid;
   grid-template-columns: auto auto;
   width: 100%;
+  transition: .5s;
 }
 
 .branding {
@@ -19,17 +20,21 @@
 .navMenu {
   grid-column: span 2;
   text-align: center;
-  padding: var(--spacer-1)
+  padding: var(--spacer-1);
+  transition: .5s;
 }
 
 .menuItem {
   width: 100%;
   margin-bottom: var(--spacer-1);
-  font-variant: all-small-caps;
+  font-variant: small-caps;
   font-weight: bold;
-  font-size: var(--font-size-5)
+  font-size: var(--font-size-5);
+  font-family: var(--brand-font);
 }
 
 .closed {
   display: none;
+  height: 0;
+  overflow:hidden;
 }

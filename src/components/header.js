@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import cn from "classnames"
 import Branding from "./branding"
 import Nav from "./nav"
-import IconMenu from "./icons/icon-menu"
+import BarsButton from "./bars-button"
 
 import styles from "./header.module.css"
 
@@ -15,7 +15,7 @@ const Header = ({ siteTitle, menuItems }) => {
     <header className={styles.base}>
       <Branding className={styles.branding} siteTitle={siteTitle} />
       <div className={styles.menuButton}>
-        <IconMenu size={32} clickHandler={e => setMenuOpen(!menuOpen)} />
+        <BarsButton size={32} clickHandler={() => setMenuOpen(!menuOpen)} />
       </div>
       <Nav className={cn(styles.navMenu, { [styles.closed]: !menuOpen })}>
         {menuItems.map(({ displayName, path }) => (
