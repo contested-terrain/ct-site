@@ -1,0 +1,33 @@
+.base {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 100%;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bar {
+  display: block;
+  position: relative;
+  border-radius: 10px;
+  opacity:1;
+  transition: transform .5s ease;
+}
+
+.toggled {
+  justify-content: center;
+}
+
+.toggled .top {
+  transform: translate(0,50%) rotate(45deg);
+}
+
+.toggled .middle {
+  transform: translate(0, -50%) rotate(-45deg);
+}
+
+.toggled .bottom {
+  opacity: 0;
+}
